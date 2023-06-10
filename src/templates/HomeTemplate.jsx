@@ -7,8 +7,10 @@ export default function HomeTemplate() {
   return (
     <div>
       <Header />
-      <div style={{ height: "80vh" }}>
-        <Outlet />
+      <div style={{ height: "130vh"}}>
+      
+        <Outlet  />
+       
       </div>
       <Footer />
     </div>

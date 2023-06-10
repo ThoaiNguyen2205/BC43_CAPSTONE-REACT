@@ -1,7 +1,24 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { clearStorage, USER_LOGIN } from "../../util/config";
 
 export default function Header() {
+  const {userLogin} = useSelector(state=>state.loginReducer);
+  const renderLinkLogin =()=>{
+    if(userLogin.email !==''){
+
+      return <>
+      
+        <span style={{cursor:"pointer"}} onClick={()=>{
+          clearStorage(USER_LOGIN);
+          window.location.reload();
+        }}>Logout</span>
+      
+      </>
+    }
+    return <NavLink to="/login">Login</NavLink>
+  }
   return (
     <div>
       <header class="header">
@@ -25,7 +42,7 @@ export default function Header() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/login">Login</NavLink>
+                  <NavLink>{renderLinkLogin()}</NavLink> 
                 </li>
                 <li>
                   <NavLink to="/register">Register</NavLink>
