@@ -41,7 +41,7 @@ const Profile = () => {
           </div>
           <div className="col-6">
             <div className='form-group mt-2'>
-              <button type='submit' className='btn btn-primary'>Update</button>
+              <button type='submit' className='btn btn-success'>Update</button>
 
 
             </div>
