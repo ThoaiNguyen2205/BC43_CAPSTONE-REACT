@@ -1,7 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 export default function Header() {
+  const { arrProductCart } = useSelector((state) => state.productReducer);
+  console.log(arrProductCart);
+  let total = arrProductCart.reduce((tls, prod, index) => {
+    return (tls += prod.quantityCart);
+  }, 0);
   return (
     <div>
       <header class="header">
@@ -20,7 +26,8 @@ export default function Header() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/cart">
+                  <NavLink to="/cart" className="mx-2">
+                    <span className="fs-5 me-2">({total})</span>
                     <img src="./img/image 8.png" alt="" />
                   </NavLink>
                 </li>
