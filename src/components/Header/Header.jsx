@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { clearStorage, USER_LOGIN } from "../../util/config";
 
 export default function Header() {
+
   const {userLogin} = useSelector(state=>state.loginReducer);
   const renderLinkLogin =()=>{
     if(userLogin.email !==''){
@@ -19,6 +20,9 @@ export default function Header() {
     }
     return <NavLink to="/login">Login</NavLink>
   }
+
+  
+
   return (
     <div>
       <header class="header">
@@ -37,7 +41,8 @@ export default function Header() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/cart">
+                  <NavLink to="/cart" className="mx-2">
+                    <span className="fs-5 me-2">({total})</span>
                     <img src="./img/image 8.png" alt="" />
                   </NavLink>
                 </li>
