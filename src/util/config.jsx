@@ -1,4 +1,5 @@
 import axios from "axios";
+import { history } from "../index";
 
 export const DOMAIN = "https://shop.cyberlearn.vn/";
 export const USER_LOGIN = "userLogin";
@@ -33,6 +34,21 @@ httpProduct.interceptors.request.use(
     return config;
   },
   (err) => {
+    return Promise.reject(err);
+  }
+);
+//Cấu hình cho response (kết quả trả về từ api)
+httpProduct.interceptors.response.use(
+  (res) => {
+    return res;
+  },
+  (err) => {
+    //Xử lý lỗi cho api bị lỗi theo status code
+    console.log(err);
+    if (err.response?.status === 401) {
+      alert("Đăng nhập để vào trang này !");
+      history.push("/login");
+    }
     return Promise.reject(err);
   }
 );

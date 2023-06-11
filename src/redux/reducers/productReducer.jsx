@@ -29,7 +29,7 @@ const productReducer = createSlice({
     },
     delProdCartAction: (state, action) => {
       let id = action.payload;
-      let indexDel = state.arrProductCart.findIndex((per) => per.id === id);
+      let indexDel = state.arrProductCart.findIndex((prod) => prod.id === id);
       if (indexDel !== -1) {
         state.arrProductCart.splice(indexDel, 1);
       }
@@ -55,7 +55,17 @@ const productReducer = createSlice({
       if (prodCart) {
         prodCart.quantityCart += quantity;
         if (prodCart.quantityCart < 1) {
-          prodCart.quantityCart -= quantity;
+          if (window.confirm("Bạn có muốn xoá sản phẩm này không ?")) {
+            let indexDel = state.arrProductCart.findIndex(
+              (prod) => prod.id === id
+            );
+            if (indexDel !== -1) {
+              state.arrProductCart.splice(indexDel, 1);
+            }
+            return;
+          } else {
+            prodCart.quantityCart -= quantity;
+          }
         }
       }
     },

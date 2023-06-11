@@ -96,7 +96,7 @@ export default function Home() {
         <div className="row">
           {arrProduct.map((prod, index) => {
             return (
-              <div className="col-4" key={index}>
+              <div className="col-3" key={index}>
                 <div className="card">
                   <div className="cards-img">
                     <img src={prod.image} alt="" />
