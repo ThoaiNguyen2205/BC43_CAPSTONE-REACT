@@ -42,12 +42,9 @@ export const {saveStorageJSON,getStorageJSON,clearStorage} = {
 // }, (err) => {
 //     return Promise.reject(err);
 // })
-=======
-import axios from "axios";
 
-export const DOMAIN = "https://shop.cyberlearn.vn/";
-export const USER_LOGIN = "userLogin";
-export const TOKEN = "accessToken";
+
+
 
 export const httpProduct = axios.create({
   baseURL: DOMAIN,
