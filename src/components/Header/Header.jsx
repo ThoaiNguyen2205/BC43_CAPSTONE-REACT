@@ -27,7 +27,7 @@ export default function Header() {
                 </li>
                 <li>
                   <NavLink to="/cart" className="mx-2">
-                    <span className="fs-5 me-2">({total})</span>
+                    <span className="fs-5 me-2">()</span>
                     <img src="./img/image 8.png" alt="" />
                   </NavLink>
                 </li>
