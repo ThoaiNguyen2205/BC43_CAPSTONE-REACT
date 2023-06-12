@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 import { store } from "./redux/configStore";
 import HomeTemplate from "./templates/HomeTemplate";
 import {
-  BrowserRouter,
   Route,
   Routes,
   unstable_HistoryRouter as HistoryRouter,
